@@ -1,10 +1,11 @@
-$baseFontFamily: Oxygen;
-@import url(http://googleapis.com/css?family=Oxygen);
 
+$textColor: blue;
 $navbarLinkColor: blueDark;
 
-$btnPrimaryBackground: green;
+$btnPrimaryBackground: orange;
 @import 'bootstrap';
+
+
 
 body {
 	padding-top: 60px;
