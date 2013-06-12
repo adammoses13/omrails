@@ -1,0 +1,15 @@
+<%= simple_form_for(@route, html: { class: "form horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+    <%= f.input :Name, as: :text, input_html: { rows: "3" } %>
+    <%= f.input :Grade, as: :text, input_html: { rows: "3" } %>
+    <%= f.input :date, as: :text, input_html: { rows: "3" } %>
+    <%= f.input :description, as: :text, input_html: { rows: "3" } %>
+		
+		
+		
+  
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="span6 offset3">
+        <div class="well">
+            <p>
+              <%= @route.Name %>
+              <%= @route.date %>
+              <%= @route.Grade %>
+              <%= @route.description %>
+            </p>
+            <%= link_to 'Edit', edit_route_path(@route) %> |
+            <%= link_to 'Back', routes_path %>
+        </div>
+    </div>
+</div>

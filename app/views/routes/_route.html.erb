@@ -1,0 +1,10 @@
+<tr>
+	<td><%= route.Name %></td>
+	<td><%= route.date %></td>
+	<td><%= route.Grade %></td>
+	<td><%= route.description %></td>
+	
+	<td><%= link_to 'Show', route %></td>
+	<td><%= link_to 'Edit', edit_route_path(route) %></td>
+	<td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

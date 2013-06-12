@@ -1,5 +1,7 @@
 Omrails::Application.routes.draw do
-  resources :pins
+ 
+
+  resources :routes
 
 
   devise_for :users
