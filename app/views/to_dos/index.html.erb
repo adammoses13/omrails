@@ -1,0 +1,22 @@
+<h1>Tick List</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+    
+    <tbody>
+      <%= render @to_dos %>
+    </tbody>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Route', new_to_do_path %>

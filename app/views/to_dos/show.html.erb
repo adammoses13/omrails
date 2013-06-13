@@ -1,0 +1,16 @@
+<div class=:"row">
+	<div class="span6 offset3">
+		<div class="well">
+			<p>
+			 	<%= @to_do.name %>
+			  <%= @to_do.grade %>
+			  <%= @to_do.description %>
+			</p>
+			<%= link_to 'Edit', edit_to_do_path(@to_do) %> |
+			<%= link_to 'Back', to_dos_path %>
+		</div>
+	</div>
+</div>
+
+
+
