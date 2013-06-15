@@ -3,6 +3,9 @@
   <td><%= to_do.grade %></td>
   <td><%= to_do.description %></td>
   <td><%= link_to 'Show', to_do %></td>
-  <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
-  <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  <% if current_user == to_do.user%>
+	  <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
+	  <td><%= link_to 'Delete', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
  </tr>

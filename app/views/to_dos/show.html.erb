@@ -2,11 +2,21 @@
 	<div class="span6 offset3">
 		<div class="well">
 			<p>
-			 	<%= @to_do.name %>
+				<%= @to_do.name %>
+			</p>
+			<p>
 			  <%= @to_do.grade %>
+			</p>
+			<p>
 			  <%= @to_do.description %>
 			</p>
-			<%= link_to 'Edit', edit_to_do_path(@to_do) %> |
+			<p>
+				<%= @to_do.user.name %>
+			</p>
+
+			<% if current_user == @to_do.user%>
+				<%= link_to 'Edit', edit_to_do_path(@to_do) %> |
+			<% end %>
 			<%= link_to 'Back', to_dos_path %>
 		</div>
 	</div>

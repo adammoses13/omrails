@@ -1,30 +1,30 @@
 
 $textColor: blue;
 $navbarLinkColor: blueDark;
-
 $btnPrimaryBackground: orange;
+
 @import 'bootstrap';
-
-
-
 body {
 	padding-top: 60px;
 }
 
 @import 'bootstrap-responsive';
 
-.footer {
 
 .navbar-inner {
 	@include box-shadow(none !important);
 	border: 0;
 }
-	margin-top: 50px;
+
+.footer {
+	position: relative;
+	margin-top: -150px;
+	height: 150px;
+	clear:both;
+	padding-top: 20px;
 	color: $grayLight;
-	a {
-		color: $gray;
 	}
-}
+
 .hero-unit {
   background-image: url('Climbing.jpg');
   background-position: right;
@@ -34,4 +34,25 @@ body {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+}
+
+.well {
+	text-align: center;
+	background-color: rgb(217,238,235);
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  p{
+		color: $gray;
+	}
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }

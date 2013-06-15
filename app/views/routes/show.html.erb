@@ -3,11 +3,23 @@
         <div class="well">
             <p>
               <%= @route.Name %>
+            </p>
+            <p>
               <%= @route.date %>
+            </p>
+            <p>
               <%= @route.Grade %>
+            </p>
+            <p>
               <%= @route.description %>
             </p>
-            <%= link_to 'Edit', edit_route_path(@route) %> |
+            <p>
+              <%= @route.user.name %>
+            </p>
+
+            <% if current_user == @route.user %>
+              <%= link_to 'Edit', edit_route_path(@route) %> |
+            <% end %>
             <%= link_to 'Back', routes_path %>
         </div>
     </div>

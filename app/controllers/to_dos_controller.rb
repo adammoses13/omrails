@@ -1,4 +1,6 @@
 class ToDosController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /to_dos
   # GET /to_dos.json
   def index
@@ -24,7 +26,7 @@ class ToDosController < ApplicationController
   # GET /to_dos/new
   # GET /to_dos/new.json
   def new
-    @to_do = ToDo.new
+    @to_do = current_user.to_dos.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class ToDosController < ApplicationController
 
   # GET /to_dos/1/edit
   def edit
-    @to_do = ToDo.find(params[:id])
+    @to_do = current_user.to_dos.new.find(params[:id])
   end
 
   # POST /to_dos
   # POST /to_dos.json
   def create
-    @to_do = ToDo.new(params[:to_do])
+    @to_do = current_user.to_dos.new(params[:to_do])
 
     respond_to do |format|
       if @to_do.save
@@ -56,7 +58,7 @@ class ToDosController < ApplicationController
   # PUT /to_dos/1
   # PUT /to_dos/1.json
   def update
-    @to_do = ToDo.find(params[:id])
+    @to_do = current_user.to_dos.new.find(params[:id])
 
     respond_to do |format|
       if @to_do.update_attributes(params[:to_do])
@@ -72,7 +74,7 @@ class ToDosController < ApplicationController
   # DELETE /to_dos/1
   # DELETE /to_dos/1.json
   def destroy
-    @to_do = ToDo.find(params[:id])
+    @to_do = current_user.to_dos.new.find(params[:id])
     @to_do.destroy
 
     respond_to do |format|

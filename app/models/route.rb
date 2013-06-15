@@ -9,4 +9,6 @@ class Route < ActiveRecord::Base
   validates :date, presence: true
 	validates :Grade, presence: true
   validates :description, presence: true
+
+  belongs_to :user
 end

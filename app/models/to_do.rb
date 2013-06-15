@@ -5,4 +5,6 @@ class ToDo < ActiveRecord::Base
   validates :grade, presence: true
   validates :name, presence: true
 
+  belongs_to :user
+
 end

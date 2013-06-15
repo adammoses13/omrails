@@ -1,4 +1,6 @@
 class RoutesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /routes
   # GET /routes.json
   def index
@@ -24,7 +26,7 @@ class RoutesController < ApplicationController
   # GET /routes/new
   # GET /routes/new.json
   def new
-    @route = Route.new
+    @route = current_user.routes.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
-    @route = Route.find(params[:id])
+    @route = current_user.routes.new.find(params[:id])
   end
 
   # POST /routes
   # POST /routes.json
   def create
-    @route = Route.new(params[:route])
+    @route = current_user.routes.new(params[:route])
 
     respond_to do |format|
       if @route.save
@@ -56,7 +58,7 @@ class RoutesController < ApplicationController
   # PUT /routes/1
   # PUT /routes/1.json
   def update
-    @route = Route.find(params[:id])
+    @route = current_user.routes.new.find(params[:id])
 
     respond_to do |format|
       if @route.update_attributes(params[:route])
@@ -72,7 +74,7 @@ class RoutesController < ApplicationController
   # DELETE /routes/1
   # DELETE /routes/1.json
   def destroy
-    @route = Route.find(params[:id])
+    @route = current_user.routes.new.find(params[:id])
     @route.destroy
 
     respond_to do |format|
