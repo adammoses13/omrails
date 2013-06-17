@@ -36,7 +36,7 @@ class ToDosController < ApplicationController
 
   # GET /to_dos/1/edit
   def edit
-    @to_do = current_user.to_dos.new.find(params[:id])
+    @to_do = current_user.to_dos.find(params[:id])
   end
 
   # POST /to_dos
@@ -58,7 +58,7 @@ class ToDosController < ApplicationController
   # PUT /to_dos/1
   # PUT /to_dos/1.json
   def update
-    @to_do = current_user.to_dos.new.find(params[:id])
+    @to_do = current_user.to_dos.find(params[:id])
 
     respond_to do |format|
       if @to_do.update_attributes(params[:to_do])
@@ -74,7 +74,7 @@ class ToDosController < ApplicationController
   # DELETE /to_dos/1
   # DELETE /to_dos/1.json
   def destroy
-    @to_do = current_user.to_dos.new.find(params[:id])
+    @to_do = current_user.to_dos.find(params[:id])
     @to_do.destroy
 
     respond_to do |format|

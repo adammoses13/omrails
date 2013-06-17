@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615202312) do
+ActiveRecord::Schema.define(:version => 20130617014540) do
 
   create_table "pins", :force => true do |t|
     t.string   "description"
@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(:version => 20130615202312) do
 
   create_table "routes", :force => true do |t|
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "date"
     t.string   "Grade"
     t.string   "Name"
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "routes", ["user_id"], :name => "index_routes_on_user_id"
@@ -35,9 +39,13 @@ ActiveRecord::Schema.define(:version => 20130615202312) do
     t.string   "name"
     t.string   "grade"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "to_dos", ["user_id"], :name => "index_to_dos_on_user_id"

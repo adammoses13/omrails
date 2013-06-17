@@ -36,7 +36,7 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
-    @route = current_user.routes.new.find(params[:id])
+    @route = current_user.routes.find(params[:id])
   end
 
   # POST /routes
@@ -58,7 +58,7 @@ class RoutesController < ApplicationController
   # PUT /routes/1
   # PUT /routes/1.json
   def update
-    @route = current_user.routes.new.find(params[:id])
+    @route = current_user.routes.find(params[:id])
 
     respond_to do |format|
       if @route.update_attributes(params[:route])
@@ -74,7 +74,7 @@ class RoutesController < ApplicationController
   # DELETE /routes/1
   # DELETE /routes/1.json
   def destroy
-    @route = current_user.routes.new.find(params[:id])
+    @route = current_user.routes.find(params[:id])
     @route.destroy
 
     respond_to do |format|
