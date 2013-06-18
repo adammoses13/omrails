@@ -19,7 +19,7 @@ body {
 .footer {
 	position: relative;
 	margin-top: -300px;
-	height: 4em;
+	height: 300px;
 	clear:both;
 	padding-top: 100px;
 	color: $grayLight;
@@ -53,7 +53,7 @@ html, body {
 }
 
 .push {
-height: 4em;
+height: 50em;
 }
 
 #main {
@@ -85,15 +85,4 @@ height: 4em;
 
 .description {
     margin: 10px 0 5px;
-}
-
-.wrapper {
-min-height: 100%;
-height: auto !important;
-height: 100%;
-margin: 0 auto -4em;
-}
-
-* {
-margin: 0;
 }
