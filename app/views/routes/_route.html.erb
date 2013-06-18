@@ -1,13 +1,20 @@
-<tr>
-	<td><%= image_tag route.image(:thumb)%></td>
-	<td><%= route.Name %></td>
-	<td><%= route.date %></td>
-	<td><%= route.Grade %></td>
-	<td><%= route.description %></td>
-	<td><%= link_to 'Show', route %></td>
+<div class="box">
+	<%= link_to (image_tag route.image(:thumb)), route%>
+	<p class="description">
+		<%= route.Name %>	
+		<%= route.Grade %>
+	</p>
+	<p>
+		<strong>
+			Posted by <%= route.user.name %>
+		</strong>
+	</p>
 	
 	<% if current_user == route.user %>
-		<td><%= link_to 'Edit', edit_route_path(route) %></td>
-		<td><%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<p>
+			<%= link_to 'Edit', edit_route_path(route) %>
+			<%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
 	<% end %>
-</tr>
+</div>
+
