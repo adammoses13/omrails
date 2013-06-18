@@ -4,7 +4,7 @@ class ToDosController < ApplicationController
   # GET /to_dos
   # GET /to_dos.json
   def index
-    @to_dos = ToDo.all
+    @to_dos = ToDo.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
