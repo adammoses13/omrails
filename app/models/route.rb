@@ -16,5 +16,5 @@ class Route < ActiveRecord::Base
   														 size: { less_than: 5.megabytes }
 
   belongs_to :user
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 end

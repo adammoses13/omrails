@@ -9,6 +9,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
 
+  before_save :create_permalink
+  private
+     def create_permalink
+          self.permalink = name.downcase
+     end
+
+def to_param
+  permalink
+end
+  
   has_many :routes, :dependent => :destroy
   has_many :to_dos, :dependent => :destroy
 end

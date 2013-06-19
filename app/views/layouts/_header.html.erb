@@ -10,18 +10,20 @@
       </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to "Climb On!", root_path, class: "brand" %>
+      <%= link_to "Climb on!", root_path, class: "brand" %>
 
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
 	      <ul class="nav">
-		     <li><%= link_to "Home", root_path %></li>
-					<li><%= link_to "About", about_path %></li>
-      	     <% if user_signed_in? %>
+		      <li><%= link_to "Home", root_path %></li>
+				  <% unless user_signed_in? %>
+            <li><%= link_to "About", about_path %></li>
+      	  <% end %> 
+            <% if user_signed_in? %>
                 <li><%= link_to "My Tick List", to_dos_path %></li>
                 <li><%= link_to "Add Route to My Tick List", new_to_do_path %></li>
-             <% else %>
-              <% end %>
+              <% else %>
+            <% end %>
         </ul>
       	<ul class="nav pull-right">
 		      <% if user_signed_in? %>
