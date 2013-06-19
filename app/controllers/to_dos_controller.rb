@@ -1,6 +1,5 @@
 class ToDosController < ApplicationController
-  before_filter :authenticate_user!, except: [:index], except: [:new]
-
+  before_filter :authenticate_user!, except: [:index]
   # GET /to_dos
   # GET /to_dos.json
   def index
