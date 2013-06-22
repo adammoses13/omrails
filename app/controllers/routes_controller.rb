@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.order("created_at desc")
+    @routes = Route.order("created_at desc").page(params[:page]).per_page(25)
 
     respond_to do |format|
       format.html # index.html.erb

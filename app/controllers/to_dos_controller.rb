@@ -3,7 +3,7 @@ class ToDosController < ApplicationController
   # GET /to_dos
   # GET /to_dos.json
   def index
-    @to_dos = ToDo.find_all_by_user_id current_user[:id]
+    @to_dos = ToDo.page(params[:page]).per_page(20).order("created_at desc").find_all_by_user_id current_user[:id]
 
     respond_to do |format|
       format.html # index.html.erb

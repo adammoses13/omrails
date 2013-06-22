@@ -23,5 +23,5 @@ doc/
 # ignore paperclip uploaded files
  /public/system
 
- #ignore sample images
+ # ignore sample images
  /sampleimages
