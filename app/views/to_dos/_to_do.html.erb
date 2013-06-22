@@ -1,6 +1,11 @@
  <tr>
- 	<td><%= image_tag to_do.image(:thumb) %></td>
+ 	<% if to_do.image? %>
+  	<td><%= image_tag to_do.image(:thumb) %></td>
+  <% else %>
+  	<td></td>
+	<% end %>	
   <td><%= to_do.name %></td>
+  <td><%= to_do.typeofclimb %></td>
   <td><%= to_do.grade %></td>
   <td><%= to_do.description %></td>
   <td><%= to_do.climbed %></td>

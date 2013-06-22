@@ -10,6 +10,7 @@ Omrails::Application.routes.draw do
   devise_for :users
 
 get 'about' => 'pages#about'
+get 'myroutes' =>'pages#myroutes'
 
 root :to => 'routes#index'
 

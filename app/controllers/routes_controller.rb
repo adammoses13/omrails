@@ -12,8 +12,10 @@ class RoutesController < ApplicationController
     end
   end
 
+
   # GET /routes/1
   # GET /routes/1.json
+  
   def show
     @route = Route.find(params[:id])
 

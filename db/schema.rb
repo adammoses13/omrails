@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619172612) do
+ActiveRecord::Schema.define(:version => 20130622154825) do
 
   create_table "pins", :force => true do |t|
     t.string   "description"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130619172612) do
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
     t.string   "climbed"
+    t.string   "typeofclimb"
   end
 
   add_index "to_dos", ["user_id"], :name => "index_to_dos_on_user_id"
