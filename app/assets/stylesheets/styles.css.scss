@@ -4,37 +4,12 @@ $navbarLinkColor: blueDark;
 $btnPrimaryBackground: orange;
 
 @import 'bootstrap';
+@import 'bootstrap-responsive';
+
 body {
 	padding-top: 60px;
 }
 
-@import 'bootstrap-responsive';
-
-/* Required for jQueryMasonry */
-
-.box {
-    margin: 5px;
-    padding: 5px;
-    font-size: 11px;
-    line-height: 1.4em;
-    float: left;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 10px #444;
-    width: 214px;
-}
-
-.box img {
-    width: 100%;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.description {
-    margin: 10px 0 5px;
-}
 .navbar-inner {
 	@include box-shadow(none !important);
 	border: 0;
@@ -83,5 +58,32 @@ height: 25em;
 #main {
   overflow:auto;
   padding-bottom:100px; /* this needs to be bigger than footer height*/
+}
+
+/* Required for jQueryMasonry */
+
+.box {
+    margin: 5px;
+    padding: 5px;
+    font-size: 11px;
+    line-height: 1.4em;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px #444;
+    width: 215px;
+    overflow: hidden;
+}
+
+.box img {
+    width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.description {
+    margin: 10px 0 5px;
 }
 

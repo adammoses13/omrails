@@ -10,8 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//= require jquery-1.8.0.min.js
 //= require jquery_ujs
 //= require jquery.masonry.min.js
+//= require modernizr-2.5.3.min.js
+//= require script
 //= require bootstrap
 //= require_tree .

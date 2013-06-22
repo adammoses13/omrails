@@ -7,8 +7,7 @@
           <p><%= @route.date %></p>
           <p><%= @route.Grade %></p>
           <p><%= @route.description %></p>
-          <p><%= @route.user.name %></p>
-
+          <p>Posted by <%= @route.user.name%> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
           <% if current_user == @route.user %>
             <%= link_to 'Edit', edit_route_path(@route) %> |
           <% end %>
