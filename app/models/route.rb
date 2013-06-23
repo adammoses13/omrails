@@ -1,5 +1,7 @@
 class Route < ActiveRecord::Base
   
+  attr_accessible :typeofclimb
+  attr_accessible :location
   attr_accessible :Name
   attr_accessible :date
   attr_accessible :Grade
@@ -7,6 +9,8 @@ class Route < ActiveRecord::Base
   attr_accessible :image
   attr_accessible :image_remote_url
   
+  validates :typeofclimb, presence: true
+  validates :location, presence: true
   validates :user_id, presence: true
   validates :Name, presence: true 
   validates :date, presence: true

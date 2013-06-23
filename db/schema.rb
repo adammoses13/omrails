@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622154825) do
+ActiveRecord::Schema.define(:version => 20130623044519) do
 
   create_table "pins", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20130622154825) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
+    t.string   "typeofclimb"
+    t.string   "location"
   end
 
   add_index "routes", ["user_id"], :name => "index_routes_on_user_id"
@@ -55,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20130622154825) do
   add_index "to_dos", ["user_id"], :name => "index_to_dos_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,10 +67,16 @@ ActiveRecord::Schema.define(:version => 20130622154825) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "name"
     t.string   "permalink"
+    t.boolean  "admin",                  :default => false
+    t.string   "hometown"
+    t.string   "ability"
+    t.string   "favclimb"
+    t.string   "interests"
+    t.string   "climbingfor"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

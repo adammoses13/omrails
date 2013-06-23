@@ -2,7 +2,7 @@
 <div class="box">
 	<%= link_to (image_tag route.image(:medium)), route %>
 	<p class="description">
-		<%= route.Name %>	
+		<%= route.Name %>,	
 		<%= route.Grade %>
 	</p>
 	<p>
@@ -16,7 +16,12 @@
 		</strong>
 	</p>
 
-	
+	<% if current_user.try(:admin?) %>
+		<p>
+			<%= link_to 'Edit', edit_route_path(route) %>
+			<%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	<% end %> 
 	<% if current_user == route.user %>
 		<p>
 			<%= link_to 'Edit', edit_route_path(route) %>

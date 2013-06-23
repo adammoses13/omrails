@@ -3,8 +3,8 @@
         <div class="well">
           <%= image_tag @route.image %>
 
-          <p><%= @route.Name %></p>
-          <p><%= @route.date %></p>
+          <p><%= @route.Name %> at <%= @route.location %></p>
+          <p>Climbed on <%= @route.date %></p>
           <p><%= @route.Grade %></p>
           <p><%= @route.description %></p>
           <p>Posted by <%= @route.user.name%> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
