@@ -10,6 +10,7 @@ class RoutesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @routes }
+      #format.js  #to add endless scroll
     end
   end
 

@@ -13,6 +13,12 @@ body {
 .navbar-inner {
 	@include box-shadow(none !important);
 	border: 0;
+  .brand { font-size: 30px;
+    font-style: oblique;
+    font-weight: bold;
+  }
+  .nav{font-size: 18px;
+  }
 }
 
 .footer {
@@ -55,7 +61,7 @@ html, body {
 }
 
 .push {
-height: 25em;
+height: 5em;
 }
 
 #main {
@@ -77,7 +83,8 @@ height: 25em;
     box-shadow: 1px 1px 10px #444;
     width: 200px;
     overflow: hidden;
-}
+    line-height: 75%;
+  }
 
 .box img {
     width: 100%;
@@ -87,6 +94,7 @@ height: 25em;
 }
 
 .description {
+  line-height: 75%;
     margin: 10px 0 10px;
  }
 

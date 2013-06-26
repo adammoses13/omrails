@@ -1,0 +1,10 @@
+$boxes = $('<%= j render(@routes) %>')
+
+$('#routes').append( $boxes ).imagesLoaded( function(){
+    $('#routes').masonry( 'reload');
+});
+<% if @routes.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate(@routes) %>');
+<% else %>
+    $('.pagination').remove();
+<% end %>
