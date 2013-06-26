@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
   
   has_many :routes, :dependent => :destroy
   has_many :to_dos, :dependent => :destroy
+  has_many :comments
+
+
+
+
+
 end

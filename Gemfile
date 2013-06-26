@@ -9,6 +9,7 @@ gem 'aws-sdk'
 gem 'faker'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
+gem 'cancan'
 
 group :production do
   gem 'pg'

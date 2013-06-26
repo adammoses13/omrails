@@ -1,17 +1,68 @@
 <div class="row">
-    <div class="span6 offset3">
-        <div class="well">
-          <%= image_tag @route.image %>
-
-          <p><%= @route.Name %> at <%= @route.location %></p>
-          <p>Climbed on <%= @route.date %></p>
-          <p><%= @route.Grade %></p>
-          <p><%= @route.description %></p>
-          <p>Posted by <%= @route.user.name%> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
+  <div class="span6 offset3">
+      <div class="well">
+        <%= image_tag @route.image %>
+      <br/>
+      <br/>
+        <p><%= @route.Name %> at <%= @route.location %></p>
+        <p>Climbed on <%= @route.date %></p>
+        <p><%= @route.Grade %></p>
+        <p><%= @route.description %></p>
+        <p>Posted by <%= @route.user.name%> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
+        <% if current_user.try(:admin?) %>
+          <%= link_to 'Edit', edit_route_path(@route) %> |
+        <% else %>
           <% if current_user == @route.user %>
-            <%= link_to 'Edit', edit_route_path(@route) %> |
+           <%= link_to 'Edit', edit_route_path(@route) %> |
           <% end %>
+        <% end %>
           <%= link_to 'Back', routes_path %>
-        </div>
-    </div>
+     </div>
+
+     
+    
+  <div id="comments" class="well">
+    <h3>Comments</h3>
+    <% @route.comments.each do |comment| %>
+    <p>
+      <strong>Name:</strong>
+        <%= comment.commenter %>
+    </p>
+     
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+          
+<% if false %>
+<% if current_user.try(:admin?) %>
+      <%= link_to 'Delete', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% else %> 
+  <% if current_user == route.user %>
+    <p>
+      <%= link_to 'Delete', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+    
+  <% end %>
+
+  <% end %>
+    <br/>
+    <br/>
+  <% end %>
+ <% end %>
+ 
+  <h3>Add a comment</h3>
+    <%= simple_form_for([@route, @route.comments.build]) do |f| %>
+      <p>
+        <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %><br />
+      </p>
+      <p>
+        <%= f.input :body, as: :text, label: "Comment:", input_html: { rows: "4" } %><br />
+      </p>
+      
+        <%= f.submit :Submit, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+   </div> 
 </div>

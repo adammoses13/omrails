@@ -1,5 +1,6 @@
 class RoutesController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+ 
 
   # GET /routes
   # GET /routes.json
@@ -38,7 +39,11 @@ class RoutesController < ApplicationController
 
   # GET /routes/1/edit
   def edit
-    @route = current_user.routes.find(params[:id])
+    if current_user.try(:admin?)
+      @route = Route.find(params[:id])
+    else
+      @route = current_user.routes.find(params[:id])
+    end
   end
 
   # POST /routes
@@ -60,8 +65,12 @@ class RoutesController < ApplicationController
   # PUT /routes/1
   # PUT /routes/1.json
   def update
-    @route = current_user.routes.find(params[:id])
-
+    if current_user.try(:admin?)
+      @route = Route.find(params[:id])
+    else
+      @route = current_user.routes.find(params[:id])
+    end
+    
     respond_to do |format|
       if @route.update_attributes(params[:route])
         format.html { redirect_to @route, notice: 'Route was successfully updated.' }
@@ -76,12 +85,19 @@ class RoutesController < ApplicationController
   # DELETE /routes/1
   # DELETE /routes/1.json
   def destroy
+   if current_user.try(:admin?)
+    @route = Route.find(params[:id])
+    @route.destroy
+   else 
     @route = current_user.routes.find(params[:id])
     @route.destroy
+  end
 
     respond_to do |format|
       format.html { redirect_to routes_url }
       format.json { head :no_content }
+
+
     end
   end
 end

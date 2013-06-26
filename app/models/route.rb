@@ -1,5 +1,6 @@
 class Route < ActiveRecord::Base
   
+  attr_accessible :title
   attr_accessible :typeofclimb
   attr_accessible :location
   attr_accessible :Name
@@ -9,6 +10,7 @@ class Route < ActiveRecord::Base
   attr_accessible :image
   attr_accessible :image_remote_url
   
+  validates :title, presence: true, length: { minimum: 5 }
   validates :typeofclimb, presence: true
   validates :location, presence: true
   validates :user_id, presence: true
@@ -22,6 +24,8 @@ class Route < ActiveRecord::Base
 
   belongs_to :user
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_many :comments
+
 
   def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?

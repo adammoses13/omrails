@@ -1,12 +1,18 @@
 Omrails::Application.routes.draw do
  
 
+  devise_for :admins
+
   get "users/show"
 
   resources :to_dos
 
+  resources :routes do
+    resources :comments
+  end
 
-  resources :routes
+
+
 
 
   devise_for :users
