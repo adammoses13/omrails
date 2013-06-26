@@ -2,21 +2,20 @@ class CommentsController < ApplicationController
 
 def create
     @route = Route.find(params[:route_id])
-    @comment = @route.comments.create(params[:comment])
+    @comment = @route.comments.create!(params[:comment])
     redirect_to route_path(@route)
   end
 
 def destroy
    if current_user.try(:admin?)
-   	@route = @route.find(params[:route_id])
-    @comment = @route.comments.find(params[:comment])
+   	@comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to route_path(@route)
+    
    else 
-    @route = Route.find(params[:route_id])
-    @comment = @route.comments.find(params[:comment])
+    
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to route_path(@route)
+  
   end
 
  respond_to do |format|
@@ -27,3 +26,11 @@ def destroy
 end
 
 end
+
+
+#if current_user.try(:admin?)
+  #  @route = @route.find(params[:route_id])
+  #  @comment = @route.comments.find(params[:comment])
+  #  @comment.destroy
+  #  redirect_to route_path(@route)
+#<% end %>
