@@ -29,6 +29,13 @@
             <li><%= link_to "Post Route", new_route_path %></li>
             <li><%= link_to "My Routes", myroutes_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+          
+          <% if false %>
+           <li> <form class="navbar-search pull-left">
+           <input type="text" class="search-query" placeholder="still working on this...">
+           </form></li>
+          <% end %>
+
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         	<% else %>
             <li><%= link_to "Login", new_user_session_path %></li>

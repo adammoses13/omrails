@@ -7,6 +7,7 @@ Omrails::Application.routes.draw do
 
   resources :to_dos
 
+
   resources :routes do
     resources :comments
   end

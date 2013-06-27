@@ -101,4 +101,15 @@ class RoutesController < ApplicationController
 
     end
   end
+
+ # def search
+ #    if params[:q]
+  #     query = params[:q]
+   #    @search = Route.search do
+    #     keywords query
+    #  end
+    #   @routes = @search.results
+     
+     #end
+    #end
 end

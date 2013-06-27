@@ -8,7 +8,7 @@
         <p>Climbed on <%= @route.date %></p>
         <p><%= @route.Grade %></p>
         <p><%= @route.description %></p>
-        <p>Posted by <%= @route.user.name%> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
+        <p>Posted by <%= link_to @route.user.name, @route.user %> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
         <% if current_user.try(:admin?) %>
           <%= link_to 'Edit', edit_route_path(@route) %> |
         <% else %>
@@ -22,7 +22,7 @@
      
     
   <div id="comments" class="well">
-    <h3>Comments</h3>
+  <h3><b>Comments</b></h3>
     <% @route.comments.each do |comment| %>
     <p>
       <strong>Name:</strong>
@@ -54,7 +54,7 @@
   <% end %>
  
  
-  <h3>Add a comment</h3>
+  <h4>Add a comment</h4>
     <%= simple_form_for([@route, @route.comments.build]) do |f| %>
       <p>
         <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %><br />
