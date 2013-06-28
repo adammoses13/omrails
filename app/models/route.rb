@@ -1,6 +1,6 @@
 class Route < ActiveRecord::Base
   
-  attr_accessible :title
+  #attr_accessible :title
   attr_accessible :typeofclimb
   attr_accessible :location
   attr_accessible :Name
@@ -10,7 +10,7 @@ class Route < ActiveRecord::Base
   attr_accessible :image
   attr_accessible :image_remote_url
   
-  validates :title, presence: true, length: { minimum: 5 }
+  #validates :title, presence: true, length: { minimum: 5 }
   validates :typeofclimb, presence: true
   validates :location, presence: true
   validates :user_id, presence: true
