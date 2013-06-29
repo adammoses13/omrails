@@ -1,5 +1,10 @@
-<h1><%= @user.name %>'s Page</h1>
+<div class='profile' >
+<h1><u><%= @user.name %>'s Page</u></h1>
+</div>
 
+
+
+<h2> Profile </h2>
 <div class="well well-small">
 	<ul>
 		<li><b>Hometown:</b> <%= @user.hometown  %></li>
@@ -10,7 +15,7 @@
 	</ul>
 </div>
 
-<h2> <%= @user.name %>'s Routes </h2>
+<h2> Routes </h2>
 <div id="routes">
   <%= render @routes %>
 </div>
