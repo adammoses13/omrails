@@ -16,14 +16,14 @@ Omrails::Application.routes.draw do
 
 
 
-  devise_for :users
-  get '/:name' => 'users#show', as: :user
-  match 'show' => 'users#show'
+  
 
 get 'about' => 'pages#about'
 get 'myroutes' => 'pages#myroutes'
 
-
+devise_for :users
+  get '/:name' => 'users#show', as: :user
+  match 'show' => 'users#show'
 
 root :to => 'routes#index'
 
