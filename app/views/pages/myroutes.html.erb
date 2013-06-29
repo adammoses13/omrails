@@ -1,6 +1,16 @@
+<h1> My Profile </h1>
+
 <div class="well well-small">
-	<h1>My Posted Routes</h1>
+	<ul>
+		<li><b>Hometown:</b> <%= current_user.hometown  %></li>
+		<li><b>Been Climbing For</b> <%= current_user.climbingfor %></li>
+		<li><b>Climbing Ability:</b> <%= current_user.ability %></li>
+		<li><b>Favorite Climb/Area:</b> <%= current_user.favclimb %></li>
+		<li><b>Other Interests:</b> <%= current_user.interests %></li>
+	</ul>
 </div>
+
+<h2> My Posted Routes </h2>
 <div id="routes">
   <%= render @routes %>
 </div>

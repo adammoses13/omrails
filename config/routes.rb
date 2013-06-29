@@ -3,7 +3,7 @@ Omrails::Application.routes.draw do
 
   devise_for :admins
 
-  get "users/show"
+  
 
   resources :to_dos
 
@@ -17,10 +17,13 @@ Omrails::Application.routes.draw do
 
 
   devise_for :users
-  match 'users/:id' => 'users#show', as: :user
+  get '/:name' => 'users#show', as: :user
+  match 'show' => 'users#show'
 
 get 'about' => 'pages#about'
-get 'myroutes' =>'pages#myroutes'
+get 'myroutes' => 'pages#myroutes'
+
+
 
 root :to => 'routes#index'
 
