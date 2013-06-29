@@ -12,7 +12,7 @@ def destroy
     @comment.destroy
     
    else 
-    
+    @route = Route.find(params[:route_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
   

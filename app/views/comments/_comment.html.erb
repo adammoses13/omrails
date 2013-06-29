@@ -1,0 +1,40 @@
+<h3><b>Comments</b></h3>
+  <% @route.comments.each do |comment| %>
+    <p>
+      <strong>Name:</strong>
+        <%= comment.commenter %>
+    </p>
+     
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+   
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+     
+   <% else %> 
+    <% if current_user == @route.user %>
+      <p>
+        <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    <% end %>
+    <% end %> 
+      <br/>
+      <br/>
+  <% end %>
+  
+  <h4>Add a Comment</h4>
+    <%= simple_form_for([@route, @route.comments.build]) do |f| %>
+      <p>
+        <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %><br />
+      </p>
+      <p>
+        <%= f.input :body, as: :text, label: "Comment:", input_html: { rows: "4" } %><br />
+      </p>
+      
+        <%= f.submit :Submit, class: "btn btn-primary" %>
+      
+    <% end %>
+   

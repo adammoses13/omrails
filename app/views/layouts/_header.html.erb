@@ -31,11 +31,11 @@
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
           
           <% if false %>
-           <li> <form class="navbar-search pull-left">
+           <li> <form class="navbar-search pull-left" action="/routes" method="GET" params[:search] >
            <input type="text" class="search-query" placeholder="still working on this...">
            </form></li>
-          <% end %>
-
+           <% end %>
+          
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         	<% else %>
             <li><%= link_to "Login", new_user_session_path %></li>
