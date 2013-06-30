@@ -23,7 +23,7 @@ class Route < ActiveRecord::Base
   														 size: { less_than: 6.megabytes }
 
   belongs_to :user
-  has_attached_file :image, :styles => { :large => "400x400>", :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :image, :styles => { :large => "450x450>", :medium => "300x300>", :thumb => "100x100>" }
   has_many :comments, dependent: :destroy
 
   def image_remote_url=(url_value)
