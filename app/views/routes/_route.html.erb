@@ -1,3 +1,25 @@
+ <% if params[:action] == 'myroutes'%>
+
+ <tr>
+ 	
+  <td><%= image_tag route.image(:thumb) %></td>
+  <td><%= route.Name %></td>
+  <td><%= route.location %></td>
+  <td><%= route.Grade %></td>
+  <td><%= route.typeofclimb %></td>
+  <td><%= route.date %></td>
+  <td><%= route.description %></td>
+  <td><%= link_to 'Show', route %></td>
+
+  <% if current_user == route.user%>
+	  <td><%= link_to 'Edit', edit_route_path(route) %></td>
+	  <td><%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
+ </tr>
+
+<%end%>
+
+ <% if params[:action] == 'index' %>
 
 <div class="box">
 	<%= link_to (image_tag route.image(:medium)), route %>
@@ -33,3 +55,42 @@
 
 </div>
 
+<% end %>
+
+<% if params[:controller] == 'users' %>
+
+<div class="box">
+	<%= link_to (image_tag route.image(:medium)), route %>
+	<p class="description">
+		<b><%= route.Name %></b>,	
+		<%= route.Grade %>
+	</p>
+	<p>
+		<strong>
+			Posted by <%= link_to route.user.name, route.user %> 
+		</strong>
+	</p>
+	<p>
+		<strong>
+			on <%= route.created_at.strftime("%b. %d, %Y") %>
+		</strong>
+	</p>
+
+	<% if current_user.try(:admin?) %>
+		<p>
+			<%= link_to 'Edit', edit_route_path(route) %>
+			<%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	<% else %> 
+	<% if current_user == route.user %>
+		<p>
+			<%= link_to 'Edit', edit_route_path(route) %>
+			<%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	<% end %>
+	<% end %>
+
+
+</div>
+
+<% end %>

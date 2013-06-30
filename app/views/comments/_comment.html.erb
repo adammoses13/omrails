@@ -28,7 +28,7 @@
   <h4>Add a Comment</h4>
     <%= simple_form_for([@route, @route.comments.build]) do |f| %>
       <p>
-        <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %><br />
+        <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %>
       </p>
       <p>
         <%= f.input :body, as: :text, label: "Comment:", input_html: { rows: "4" } %><br />

@@ -12,9 +12,31 @@
 	</ul>
 </div>
 
+
+<h2> My Posted Routes </h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Grade</th>
+      <th>Type of Climb</th>
+      <th>Climbed On</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+    
+    <tbody>
+      <%= render @routes %>
+   	</tbody>
+ </table>
+
+<% if false %>
 <h2> My Posted Routes </h2>
 <div id="routes">
   <%= render @routes %>
 </div>
+<% end %>
 
 <%= will_paginate @routes %>

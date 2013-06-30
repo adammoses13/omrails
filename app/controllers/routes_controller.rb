@@ -14,6 +14,16 @@ class RoutesController < ApplicationController
     end
   end
 
+def myroutes
+  #@user = current_user
+ # @routes = @user.routes.page(params[:page]).per_page(25)
+@routes = Route.order("created_at desc").page(params[:page]).per_page(25).find_all_by_user_id current_user[:id]
+
+  respond_to do |format|
+    format.html # index.html.erb
+    format.json { render json: @routes }
+  end
+end
 
   # GET /routes/1
   # GET /routes/1.json

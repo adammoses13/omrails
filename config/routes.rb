@@ -16,16 +16,16 @@ Omrails::Application.routes.draw do
 
 
 
-  
+root :to => 'routes#index'  
 
 get 'about' => 'pages#about'
-get 'myroutes' => 'pages#myroutes'
+get 'myroutes' => 'routes#myroutes'
 
 devise_for :users
   get '/:name' => 'users#show', as: :user
   match 'show' => 'users#show'
 
-root :to => 'routes#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
