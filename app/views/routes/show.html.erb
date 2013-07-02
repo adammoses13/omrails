@@ -1,12 +1,12 @@
 <div class="row">
   <div class="span6 offset3">
       <div class="well">
-        <%= image_tag @route.image %>
+        <%= image_tag @route.image(:large) %>
       <br/>
       <br/>
-        <p><%= @route.Name %> at <%= @route.location %></p>
+        <p><%= @route.Name %> (<%= @route.Grade %>) at <%= @route.location %></p>
         <p>Climbed on <%= @route.date %></p>
-        <p><%= @route.Grade %></p>
+        
         <p><%= @route.description %></p>
         <p>Posted by <%= link_to @route.user.name, @route.user %> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
         <% if current_user.try(:admin?) %>
