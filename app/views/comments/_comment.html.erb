@@ -11,15 +11,26 @@
     </p>
    
     <% if current_user.try(:admin?) %>
-      <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>
-     
-   <% else %> 
-    <% if current_user == @route.user %>
       <p>
         <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
       </p>
-    <% end %>
+    
+    <% end %> 
+    
+      <% if current_user == @route.user %>
+        <p>
+          <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      
+      <% else %>
+    
+      
+        <% if current_user == comment.user %>
+          <p>
+            <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        <% end %>
+      
     <% end %> 
       <br/>
       <br/>
