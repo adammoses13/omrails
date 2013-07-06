@@ -35,7 +35,7 @@ class Route < ActiveRecord::Base
 
 def self.search(search)
   if search
-    where('typeofclimb LIKE ? OR location LIKE ? OR Grade LIKE ? OR Name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    where('typeofclimb LIKE ? OR location LIKE ? OR "Grade" LIKE ? OR "Name" LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   else
     scoped
   end
