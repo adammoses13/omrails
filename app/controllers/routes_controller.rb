@@ -5,13 +5,16 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
+  if params[:search]
+    @routes = Route.search(params[:search]).order("created_at desc").page(params[:page]).per_page(25)
+  else 
     @routes = Route.order("created_at desc").page(params[:page]).per_page(25)
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @routes }
       #format.js  #to add endless scroll
-    end
+   end
+  end
   end
 
 def myroutes
@@ -110,14 +113,4 @@ end
     end
   end
 
- # def search
- #    if params[:q]
-  #     query = params[:q]
-   #    @search = Route.search do
-    #     keywords query
-    #  end
-    #   @routes = @search.results
-     
-     #end
-    #end
 end

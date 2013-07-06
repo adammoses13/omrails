@@ -6,7 +6,6 @@
       <br/>
         <p><%= @route.Name %> (<%= @route.Grade %>) at <%= @route.location %></p>
         <p>Climbed on <%= @route.date %></p>
-        
         <p><%= @route.description %></p>
         <p>Posted by <%= link_to @route.user.name, @route.user %> on <%= @route.created_at.strftime("%b. %d, %Y") %></p>
         <% if current_user.try(:admin?) %>

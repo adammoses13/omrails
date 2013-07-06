@@ -10,7 +10,9 @@ class Route < ActiveRecord::Base
   attr_accessible :image
   attr_accessible :image_remote_url
   
+  
   #validates :title, presence: true, length: { minimum: 5 }
+  
   validates :typeofclimb, presence: true
   validates :location, presence: true
   validates :user_id, presence: true
@@ -30,4 +32,15 @@ class Route < ActiveRecord::Base
     self.image = URI.parse(url_value) unless url_value.blank?
     super
   end
+
+def self.search(search)
+  if search
+    where('typeofclimb LIKE ? OR location LIKE ? OR Grade LIKE ? OR Name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  else
+    scoped
+  end
+end
+
+
+
 end
