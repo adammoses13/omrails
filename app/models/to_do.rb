@@ -9,7 +9,7 @@ class ToDo < ActiveRecord::Base
   														 size: { less_than: 5.megabytes}
 
   belongs_to :user
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "150x150>" }
+  has_attached_file :image, :styles => { :large => "450x450>", :medium => "300x300>", :thumb => "100x100>" }
 
   def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?

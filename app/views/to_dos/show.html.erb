@@ -1,7 +1,9 @@
 <div class="row">
 	<div class="span6 offset3">
 		<div class="well">
-			<%= image_tag @to_do.image %>
+			<%= image_tag @to_do.image(:large) %>
+			<br/>
+      <br/>
 			<p><%= @to_do.name %></p>
 			<p><%= @to_do.typeofclimb %></p>
 			<p><%= @to_do.grade %></p>
