@@ -20,12 +20,14 @@ class Route < ActiveRecord::Base
   validates :date, presence: true
 	validates :Grade, presence: true
   validates :description, presence: true
+  
+  has_attached_file :image, :styles => { :large => "450x450>", :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment :image, presence: true,
   														 content_type: {content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/JPG', 'image/JPEG' ]},
   														 size: { less_than: 6.megabytes }
 
   belongs_to :user
-  has_attached_file :image, :styles => { :large => "450x450>", :medium => "300x300>", :thumb => "100x100>" }
+  
   has_many :comments, dependent: :destroy
 
   def image_remote_url=(url_value)
