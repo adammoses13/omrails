@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :hometown, :interests, :favclimb, :ability, :climbingfor
   # attr_accessible :title, :body
   
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+  validates :name, presence: true
+
+
   has_many :routes, :dependent => :destroy
   has_many :to_dos, :dependent => :destroy
   has_many :comments
