@@ -5,25 +5,26 @@
       <div class="row">
         <div class="span2">
           <p>
-          By <strong> <%= comment.commenter %></strong>
-          </p>
-          
+          By <strong> <%= comment.commenter %></strong></br>
+           <%= comment.created_at.strftime("%b. %d, %Y") %>
+         </p>
+         
           <% if current_user.try(:admin?) %>
             <p>
-              <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
             </p>
           <% end %> 
        
           <% if current_user == @route.user %>
             <p>
-              <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
             </p>
           
           <% else %>
              
             <% if current_user == comment.user %>
               <p>
-                <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
               </p>
             <% end %>
           <% end %>

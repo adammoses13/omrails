@@ -2,12 +2,12 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
 
-	<%= f.input :email, :autofocus => true  %>
+	<%= f.input :email, :autofocus => true, :placeholder => 'user@example.com' %>
 	<%= f.input :password %>
 	<%= f.input :remember_me, as: :boolean %>
 
   <div class="form-actions">
-  	<%= f.submit "Sign in", class: "btn btn-primary" %>
+  	<%= f.submit "Sign in", class: "btn btn-primary"%>
   </div>
 <% end %>
 
