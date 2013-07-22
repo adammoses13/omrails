@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   
   
   validates :email, presence: true
-  validates :password, presence: true, :on => :new 
-  validates :password_confirmation, presence: true, :on => :new 
+  validates :password, presence: true, :on => :create
+  validates :password_confirmation, presence: true, :on => :create 
   validates :name, presence: true
-  
+
   
 
 

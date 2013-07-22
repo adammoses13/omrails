@@ -1,51 +1,53 @@
 <h3><b>Comments</b></h3>
   <% @route.comments.each do |comment| %>
-    <p>
-      <strong>Name:</strong>
-        <%= comment.commenter %>
-    </p>
-     
-    <p>
-      <strong>Comment:</strong>
-      <%= comment.body %>
-    </p>
-   
-    <% if current_user.try(:admin?) %>
-      <p>
-        <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-      </p>
     
-    <% end %> 
-    
-      <% if current_user == @route.user %>
-        <p>
-          <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-        </p>
-      
-      <% else %>
-    
-      
-        <% if current_user == comment.user %>
+    <div class='well well-small' id='comment'>
+      <div class="row">
+        <div class="span2">
           <p>
-            <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+          By <strong> <%= comment.commenter %></strong>
           </p>
-        <% end %>
-      
-    <% end %> 
-      <br/>
-      <br/>
+          
+          <% if current_user.try(:admin?) %>
+            <p>
+              <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
+          <% end %> 
+       
+          <% if current_user == @route.user %>
+            <p>
+              <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
+          
+          <% else %>
+             
+            <% if current_user == comment.user %>
+              <p>
+                <%= link_to 'Delete', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="span3">
+          <p>
+            <%= comment.body %>
+          </p>
+        </div>
+      </div>  
+    </div>
   <% end %>
-  
+ 
   <h4>Add a Comment</h4>
     <%= simple_form_for([@route, @route.comments.build]) do |f| %>
       <p>
-        <%= f.input :commenter, as: :text, label: "Name:", input_html: { rows: "1" }  %>
+        <%= f.hidden_field :commenter, :value => current_user.name %> 
       </p>
       <p>
-        <%= f.input :body, as: :text, label: "Comment:", input_html: { rows: "4" } %><br />
+        <%= f.input :body, as: :text, label: false, input_html: { rows: "4" } %>
       </p>
-      
-        <%= f.submit :Submit, class: "btn btn-primary" %>
+        <%= f.submit :Submit, class: "btn btn-info" %>
       
     <% end %>
-   
+  
+  <% if false %> as: :text, label: "Name:", input_html: { rows: "1" } <% end %>

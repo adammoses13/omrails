@@ -7,16 +7,16 @@ def create
   end
 
 def destroy
-   if current_user.try(:admin?)
-   	@comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to route_path(@route)
-   else 
+   #if current_user.try(:admin?)
+   	#@comment = Comment.find(params[:id])
+   # @comment.destroy
+   # redirect_to route_path(@route)
+  # else 
     @route = Route.find(params[:route_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
   redirect_to route_path(@route)
-  end
+  #end
 
  #respond_to do |format|
  #     format.html { redirect_to route_url }
