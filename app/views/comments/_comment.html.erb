@@ -1,36 +1,64 @@
 <h3><b>Comments</b></h3>
   <% @route.comments.each do |comment| %>
     
+
     <div class='well well-small' id='comment'>
       <div class="row">
-        <div class="span2">
-          <p>
-          By <strong> <%= comment.commenter %></strong></br>
-           <%= comment.created_at.strftime("%b. %d, %Y") %>
-         </p>
-         
-          <% if current_user.try(:admin?) %>
-            <p>
-              <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-          <% end %> 
-       
-          <% if current_user == @route.user %>
-            <p>
-              <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
+        
           
-          <% else %>
-             
-            <% if current_user == comment.user %>
-              <p>
+          <% if comment.user.image? %>
+            <div class="span1">
+              <%= image_tag comment.user.image(:thumb) %></br></br>
+         
+              <% if current_user.try(:admin?) %>
                 <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-              </p>
-            <% end %>
-          <% end %>
-        </div>
+              <% end %> 
+       
+              <% if current_user == @route.user %>
+            
+                <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% else %>
+             
+                <% if current_user == comment.user %>
+                
+                  <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              <% end %>
+            </div>
+          <div class="span2">
+            <p>
+              By <strong> <%= comment.commenter %></strong></br>
+              <%= comment.created_at.strftime("%b. %d, %Y") %>
+            </p>
+          </div>
 
-        <div class="span3">
+          <% else %>
+            <div class="span1" >
+                <br/><br/>
+              <% if current_user.try(:admin?) %>
+                <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %> 
+       
+              <% if current_user == @route.user %>
+            
+                <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% else %>
+             
+                <% if current_user == comment.user %>
+                
+                  <%= link_to 'Remove', [@route, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="span2">
+              <p>
+                By <strong> <%= comment.commenter %></strong></br>
+                <%= comment.created_at.strftime("%b. %d, %Y") %>
+              </p>
+            </div>
+            <% end %>
+          
+        <div class="span4">
           <p>
             <%= comment.body %>
           </p>

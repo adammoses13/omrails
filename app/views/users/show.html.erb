@@ -5,8 +5,29 @@
 
 
 <h2> Profile </h2>
+
+<% if @user.image? %>
+	<div class="well well-small">
+		<div class="row">
+	  	<div class="span2">
+				<%= image_tag @user.image(:medium) %>
+			</div>
+			<div class="span8">
+				<ul>	
+					<li><b>Hometown:</b> <%= @user.hometown  %></li>
+					<li><b>Been Climbing For:</b> <%= @user.climbingfor %></li>
+					<li><b>Climbing Ability:</b> <%= @user.ability %></li>
+					<li><b>Favorite Climb/Area:</b> <%= @user.favclimb %></li>
+					<li><b>Other Interests:</b> <%= @user.interests %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<% else %>
+
 <div class="well well-small">
-	<ul>
+	<ul>	
 		<li><b>Hometown:</b> <%= @user.hometown  %></li>
 		<li><b>Been Climbing For:</b> <%= @user.climbingfor %></li>
 		<li><b>Climbing Ability:</b> <%= @user.ability %></li>
@@ -14,6 +35,8 @@
 		<li><b>Other Interests:</b> <%= @user.interests %></li>
 	</ul>
 </div>
+
+<% end %>
 
 <h2> Routes </h2>
 <div id="routes">

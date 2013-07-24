@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :hometown, :interests, :favclimb, :ability, :climbingfor
+  attr_accessible :email, :image_remote_url, :image, :password, :password_confirmation, :remember_me, :name, :hometown, :interests, :favclimb, :ability, :climbingfor
   # attr_accessible :title, :body
   
   
@@ -15,12 +15,18 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :on => :create 
   validates :name, presence: true
 
-  
+  has_attached_file :image, :styles => { :large => "450x450>", :medium => "300x300>", :thumb => "100x100>" }
+  validates_attachment :image, 
+                               content_type: {content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/JPG', 'image/JPEG' ]},
+                               size: { less_than: 6.megabytes }
 
 
   has_many :routes, :dependent => :destroy
   has_many :to_dos, :dependent => :destroy
   has_many :comments
 
-
+def image_remote_url=(url_value)
+    self.image = URI.parse(url_value) unless url_value.blank?
+    super
+  end
 end
