@@ -11,9 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery-1.8.0.min.js
-//= require jquery_ujs
 //= require jquery.masonry.min.js
 //= require modernizr-2.5.3.min.js
+//= require jquery_ujs
 //= require script
 //= require bootstrap
 //= require_tree .

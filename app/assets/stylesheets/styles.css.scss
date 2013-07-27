@@ -4,13 +4,14 @@ $navbarLinkColor: blueDark;
 $btnPrimaryBackground: orange;
 $navbarCollapseWidth: 1200px;
 $navbarHeight: 40px;
+$dropdownLinkBackgroundHover: rgb(20,150,170);
 
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
 
 body {
-	padding-top: 60px;
+	padding-top: 65px;
 /*background-image: url('background.jpg');*/
 }
 
@@ -44,6 +45,7 @@ body {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
+
 
 .row {
   .well {
