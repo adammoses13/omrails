@@ -2,7 +2,7 @@
 $textColor: blue;
 $navbarLinkColor: blueDark;
 $btnPrimaryBackground: orange;
-$navbarCollapseWidth: 1200px;
+$navbarCollapseWidth: 800px;
 $navbarHeight: 40px;
 $dropdownLinkBackgroundHover: rgb(20,150,170);
 
@@ -15,7 +15,16 @@ body {
 /*background-image: url('background.jpg');*/
 }
 
+.navbar-fixed-top .navbar-inner .container .nav-collapse {padding:0;}
+
+
+      .nav-collapse.collapse {
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+      }
 .navbar-inner {
+
 	@include box-shadow(none !important);
 	border: 0;
   .brand { font-size: 30px;
