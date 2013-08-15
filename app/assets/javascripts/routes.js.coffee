@@ -4,7 +4,7 @@
 
 jQuery ->
 	$('#routes').imagesLoaded ->
-		$('#routes').masonry itemSelector: ".box"
+		$('#routes').masonry itemSelector: ".box", isAnimated: true
 
 	#if $('.pagination').length
 	 #   $(window).scroll ->
