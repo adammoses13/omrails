@@ -3,7 +3,6 @@ $textColor: blue;
 $navbarLinkColor: blueDark;
 $btnPrimaryBackground: orange;
 $navbarCollapseWidth: 800px;
-$navbarHeight: 40px;
 $dropdownLinkBackgroundHover: rgb(20,150,170);
 
 @import 'bootstrap';
@@ -12,28 +11,25 @@ $dropdownLinkBackgroundHover: rgb(20,150,170);
 
 body {
 	padding-top: 65px;
+  
 /*background-image: url('background.jpg');*/
 }
 
-.navbar-fixed-top .navbar-inner .container .nav-collapse {padding:0;}
 
-
-      .nav-collapse.collapse {
-        padding: 0;
-        height: 0;
-        overflow: hidden;
-      }
-.navbar-inner {
-
-	@include box-shadow(none !important);
-	border: 0;
-  .brand { font-size: 30px;
-    font-style: oblique;
-    font-weight: bold;
-  }
+@media (max-width: 800px) {
+  .navbar-fixed-top{
+    top: 0px;
+    position: fixed;  
+    margin: 0px;
+    padding: 0px;
+    @include box-shadow(none !important);
+    border: 0;
+    .brand { font-size: 30px;
+      font-style: oblique;
+      font-weight: bold;
+    }
   .nav{font-size: 15px;
-  }
-}
+  }}}
 
 .footer {
 	position: relative;
