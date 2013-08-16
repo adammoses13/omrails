@@ -77,8 +77,8 @@ ActionMailer::Base.delivery_method = :smtp
     :port               => 587,
     :domain             => 'gmail.com', #you can also use google.com
     :authentication     => :plain,
-    :user_name          => 'adamwmoses13@gmail.com',
-    :password           => 'MaddyD13'
+    :user_name          => 'ClimbOn5.15@gmail.com',
+    :password           => 'MaddyD13'}
 
 
 
