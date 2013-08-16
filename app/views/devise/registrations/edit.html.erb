@@ -25,8 +25,7 @@ Additional Info:
   </div>
 <% end %>
 
-<h3>Cancel My Account</h3>
-
-<p>Unhappy? <%= link_to "Cancel My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
 <%= link_to "Back", :back %>
+<p><%= link_to "Cancel My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+

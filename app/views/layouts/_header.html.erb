@@ -43,7 +43,8 @@
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li><%= link_to "Add Route to My Tick List", new_to_do_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to "  Logout", destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to "Cancel My Account", user_registration_path, :data => { :confirm => "Are you sure?" }, :method => :delete %></li>
             </ul>
           </li>
         </ul>

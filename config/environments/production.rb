@@ -65,7 +65,27 @@ Omrails::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # In production, :host should be set to the actual host of your application.
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'immense-cliffs-8367.heroku.com' }
+  
+ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = 
+  {
+
+    :address            => 'smtp.gmail.com',
+    :port               => 587,
+    :domain             => 'gmail.com', #you can also use google.com
+    :authentication     => :plain,
+    :user_name          => 'adamwmoses13@gmail.com',
+    :password           => 'MaddyD13'
+
+
+
+
+
+
+
   Paperclip.options[:command_path]= 'C:/ImageMagick'
 
   #Configuring Amazon s3 for Paperclip file uploads
