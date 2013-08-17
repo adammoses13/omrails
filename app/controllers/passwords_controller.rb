@@ -5,7 +5,8 @@ class PasswordsController < Devise::PasswordsController
 		@user = User.find_by_email(params[:user][:email])
  		
  		if @user
-      UserMailer.reset_password_instructions(@user).deliver           
+      UserMailer.reset_password_instructions(@user).deliver
+      format.html { redirect_to(root_path, notice: 'E-mail has been sent, please follow link in e-mail to reset password.') }          
  		end
 	end
 
