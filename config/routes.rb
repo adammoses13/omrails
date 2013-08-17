@@ -21,6 +21,7 @@ root :to => 'routes#index'
 get 'about' => 'pages#about'
 get 'myroutes' => 'routes#myroutes'
 
+devise_for :users, :controllers => {:passwords => "passwords"}
 devise_for :users, :controllers => {:registrations => "registrations"}
   get '/:name' => 'users#show', as: :user
   match 'show' => 'users#show'
