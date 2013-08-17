@@ -6,7 +6,7 @@ class PasswordsController < Devise::PasswordsController
  		
  		if @user
       UserMailer.reset_password_instructions(@user).deliver
-      format.html { redirect_to(root_path, notice: 'E-mail has been sent, please follow link in e-mail to reset password.') }
+      format.html { redirect_to(root_path(resource_name), notice: 'E-mail has been sent, please follow link in e-mail to reset password.') }
       format.json { render json: @user, status: :created, location: @user }
     
  		end
