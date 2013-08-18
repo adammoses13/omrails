@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :image_remote_url, :image, :password, :password_confirmation, :remember_me, :name, :hometown, :interests, :favclimb, :ability, :climbingfor
+  attr_accessible :email, :image_remote_url, :image, :password, :password_confirmation, :remember_me, :name, :hometown, :interests, :favclimb, :ability, :climbingfor, :reset_password_token, :reset_password_sent_at
   # attr_accessible :title, :body
   
   
@@ -29,4 +29,20 @@ def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?
     super
   end
+
+
+def send_password_reset
+    generate_token(:reset_password_token)
+    self.reset_password_sent_at = Time.zone.now
+    save!
+    UserMailer.reset_password_instructions(self).deliver
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.hex
+    end while User.exists?(column => self[column])
+  end
+
+
 end

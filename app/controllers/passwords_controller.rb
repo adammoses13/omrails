@@ -1,16 +1,31 @@
 class PasswordsController < Devise::PasswordsController
 
 
-	def create
-		@user = User.find_by_email(params[:user][:email])
- 		
- 		if @user
-      UserMailer.reset_password_instructions(@user).deliver
+def create
+    @user = User.find_by_email(params[:user][:email])
+    if @user
+      @user.send_password_reset
       flash[:notice] = "E-mail has been sent, please follow link in e-mail to reset password."
       redirect_to root_path
+    else
+      flash[:notice] = "Sorry, we couldn't find that email. Please try again."
+      redirect_to root_path
+      
+    end
+
+  end
+
+
+	#def create
+	#	@user = User.find_by_email(params[:user][:email])
+ 		
+ 	#	if @user
+  #    UserMailer.reset_password_instructions(@user).deliver
+  #    flash[:notice] = "E-mail has been sent, please follow link in e-mail to reset password."
+  #    redirect_to root_path
     
- 		end
-	end
+ 	#	end
+	#end
 
 end
 #self.resource = resource_class.send_reset_password_instructions(resource_params)

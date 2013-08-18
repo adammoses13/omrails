@@ -2,6 +2,7 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %><br/>
+  
   <%= f.input :email %>
 
 <div class="form-actions">
