@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
 
   def reset_password_instructions(user)
     @user = user
-    @url  = 'http://immense-cliffs-8367.herokuapp.com/users/sign_in'
+    @url  = 'http://immense-cliffs-8367.herokuapp.com/users/password/edit'
     mail(to: @user.email, subject: 'Reset Password')
   end
 
