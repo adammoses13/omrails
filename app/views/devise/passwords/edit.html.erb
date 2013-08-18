@@ -1,16 +1,18 @@
 <h2>Change Your Password</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
+  
   <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New Password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+  <%= f.input :password, "New Password", :autofocus => true  %><br />
 
-  <div><%= f.label :password_confirmation, "Confirm New Password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.input :password_confirmation, "Confirm New Password" %><br />
 
-  <div><%= f.submit "Change My Password" %></div>
+<div class="form-actions">
+  <%= f.submit "Change My Password", class: "btn btn-info" %>
 <% end %>
-
+</div>
+ 
 <%= render "devise/shared/links" %>
+
