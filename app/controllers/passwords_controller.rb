@@ -1,9 +1,5 @@
 class PasswordsController < Devise::PasswordsController
 
- def edit
-    self.resource = resource_class.new
-    resource.reset_password_token = params[:reset_password_token]
- end
 
 def create
   @user = User.find_by_email(params[:user][:email])
