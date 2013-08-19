@@ -2,12 +2,12 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
-  
+  </br>
   <%= f.hidden_field :reset_password_token %>
 
-  <%= f.input :password, "New Password", :autofocus => true  %><br />
+  <%= f.input :password, :autofocus => true, label: "New Password" %>
 
-  <%= f.input :password_confirmation, "Confirm New Password" %><br />
+  <%= f.input :password_confirmation, label: "Confirm New Password" %></br>
 
 <div class="form-actions">
   <%= f.submit "Change My Password", class: "btn btn-info" %>
@@ -15,4 +15,3 @@
 </div>
  
 <%= render "devise/shared/links" %>
-
