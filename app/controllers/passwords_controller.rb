@@ -1,11 +1,19 @@
 class PasswordsController < Devise::PasswordsController
 
 
-def edit
-  @user = User.find_by_password_reset_token!(params[:id])
-  session[:user_id] = @user.id
-end
+#def edit
+#  @user = User.find_by_password_reset_token!(params[:id])
+ # session[:user_id] = @user.id
+#end
 
+def update
+  @user = User.find_by_password_reset_token!(params[:id])
+  if @user.password_reset_sent_at < 2.hours.ago
+    redirect_to root_path, :alert => "Your password reset link has expired."
+  elsif @user.update_attributes(params[:user])
+    redirect_to root_path, :notice => "Great news: Your password has been reset."
+  end
+end
 
 def create
   @user = User.find_by_email(params[:user][:email])
