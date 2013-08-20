@@ -26,8 +26,8 @@
 
 <h2>Change Your Password</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
-  <%= devise_error_messages! %>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal', :method => :put}) do |f| %>
+  <%= devise_error_messages! %><br/>
   </br>
   <%= f.hidden_field :reset_password_token %>
 
