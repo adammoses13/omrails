@@ -13,7 +13,3 @@ class UserMailer < ActionMailer::Base
   end
 
 end
-
-
-
-#<p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>

@@ -32,17 +32,17 @@ def image_remote_url=(url_value)
 
 
 def send_password_reset
-    generate_token(:reset_password_token)
-    self.reset_password_sent_at = Time.zone.now
-    save!
-    UserMailer.reset_password_instructions(self).deliver
-  end
+  generate_token(:reset_password_token)
+  self.reset_password_sent_at = Time.zone.now
+  save!
+  UserMailer.reset_password_instructions(self).deliver
+end
 
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.hex
-    end while User.exists?(column => self[column])
-  end
+def generate_token(column)
+  begin
+    self[column] = SecureRandom.hex
+  end while User.exists?(column => self[column])
+end
 
 
 end
