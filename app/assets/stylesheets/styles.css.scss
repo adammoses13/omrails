@@ -24,13 +24,13 @@ body {
     padding: 0px;
     @include box-shadow(none !important);
     border: 0;
-    .brand { font-size: 30px;
+    
+  .nav{font-size: 15px;
+  }}}
+.brand { font-size: 30px;
       font-style: oblique;
       font-weight: bold;
     }
-  .nav{font-size: 15px;
-  }}}
-
 .footer {
 	position: relative;
 	margin-top: -100px;
