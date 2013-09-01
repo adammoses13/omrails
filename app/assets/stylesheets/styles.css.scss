@@ -23,10 +23,11 @@ body {
     margin: 0px;
     padding: 0px;
     @include box-shadow(none !important);
-    border: 0;
+    border: 0;}
     
   .nav{font-size: 15px;
-  }}}
+  }}
+
 .brand { font-size: 30px;
       font-style: oblique;
       font-weight: bold;
