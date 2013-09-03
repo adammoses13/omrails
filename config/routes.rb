@@ -3,18 +3,11 @@ Omrails::Application.routes.draw do
 
   devise_for :admins
 
-  
-
   resources :to_dos
-
 
   resources :routes do
     resources :comments
   end
-
-
-
-
 
 root :to => 'routes#index'  
 
@@ -27,6 +20,23 @@ devise_for :users, :controllers => {
 
   get '/:name' => 'users#show', as: :user
   match 'show' => 'users#show'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
