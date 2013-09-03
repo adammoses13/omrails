@@ -12,6 +12,7 @@ gem 'bootstrap-will_paginate'
 gem 'cancan'
 gem 'newrelic_rpm'
 
+
 group :production do
   gem 'pg'
 end

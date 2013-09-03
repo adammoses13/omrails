@@ -45,6 +45,19 @@
                 <li class="divider"></li>
                 <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                 <li><%= link_to "Cancel My Account", user_registration_path, :data => { :confirm => "Are you sure?" }, :method => :delete %></li>
+<li class="divider"></li>
+               <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<li> <a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a></li>
+</div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52261dee6e8f3269"></script>
+<!-- AddThis Button END -->
             </ul>
           </li>
         </ul>
@@ -57,28 +70,3 @@
     </div>
   </div>
 </div>
-
-<% if false %>
-
-<ul class="nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "Post Route", new_route_path %></li>
-            <li><%= link_to "My Profile", myroutes_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li> 
-              <%= form_tag(routes_path, :method => "get", class: "navbar-search", id: "search-form") do %>
-                <div class="input-append">
-                  <%= text_field_tag :search, params[:search], class: "input-medium search-query", placeholder: "Search Posted Routes" %>                  
-                </div>
-              <% end %>
-            </li>
-                    
-            <li><%= button_to "Logout", destroy_user_session_path, class: "btn btn-link", :method => :delete %></li>
-          <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-
-<button class="btn" type="submit"><i class="icon-search"></i></button>
-<% end %>
