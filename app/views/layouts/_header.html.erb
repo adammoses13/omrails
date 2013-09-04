@@ -17,10 +17,12 @@
 	      <ul class="nav">
 		      <% unless user_signed_in? %>
             <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Climbs Near You", locate_climbs_path %></li>
       	  <% end %> 
             <% if user_signed_in? %>
                 <li><%= link_to "My Tick List", to_dos_path %></li>
                 <li><%= link_to "My Profile", myroutes_path %></li>
+                <li><%= link_to "Climbs Near You", locate_climbs_path %></li>
               <% else %>
             <% end %>
         </ul>
@@ -40,24 +42,11 @@
               </a>
             <ul class="dropdown-menu">
                 <li><%= link_to "Post Route", new_route_path %></li>
-                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li><%= link_to "Add Route to My Tick List", new_to_do_path %></li>
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                 <li><%= link_to "Cancel My Account", user_registration_path, :data => { :confirm => "Are you sure?" }, :method => :delete %></li>
-<li class="divider"></li>
-               <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<li> <a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a></li>
-</div>
-
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52261dee6e8f3269"></script>
-<!-- AddThis Button END -->
             </ul>
           </li>
         </ul>

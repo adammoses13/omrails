@@ -8,11 +8,18 @@ Omrails::Application.routes.draw do
   resources :routes do
     resources :comments
   end
+  
+  resources :suggestions, :only => [:new, :create] do
+      get 'thank_you', :on => :collection
+    end
 
 root :to => 'routes#index'  
 
 get 'about' => 'pages#about'
 get 'myroutes' => 'routes#myroutes'
+get 'locate_climbs' => 'pages#locate_climbs'
+
+  
 
 devise_for :users, :controllers => {
       :registrations => "registrations",
@@ -20,7 +27,6 @@ devise_for :users, :controllers => {
 
   get '/:name' => 'users#show', as: :user
   match 'show' => 'users#show'
-
 
 
 

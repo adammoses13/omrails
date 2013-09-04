@@ -17,4 +17,9 @@ class UserMailer < ActionMailer::Base
     mail(to: @route.user.email, subject: 'New Comment')
   end
 
+    def suggestion_email(suggestion)
+    @suggestion = suggestion
+    mail(to: "adammoses13@hotmail.com", subject: 'Website Suggestion')
+  end
+
 end
