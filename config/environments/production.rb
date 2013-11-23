@@ -53,7 +53,8 @@ Omrails::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-
+config.secret_key = 'babca64750e9ae66566174f140b861b700359e882fe38bbb61ed018e5076f27cc49e51c195b7ca4ec0a
+39026f7a0ded5b28fa6cbbda7893f0afe22601cceb89b'
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
