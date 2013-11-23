@@ -51,10 +51,12 @@ Omrails::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  NEWRELIC_ENABLE = false
+
   # Enable threaded mode
   # config.threadsafe!
-config.secret_key = 'babca64750e9ae66566174f140b861b700359e882fe38bbb61ed018e5076f27cc49e51c195b7ca4ec0a
-39026f7a0ded5b28fa6cbbda7893f0afe22601cceb89b'
+config.secret_key = 'c4bc084a18db83f5e2d39e6a66662b36c6d2b1082470c7b9f2c649ae46eb5793a8eb74b95d075d9b7f9
+c89f57f2c6466710f4bcf7c8817a06c99ad58bb95b296'
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
