@@ -68,7 +68,7 @@ c89f57f2c6466710f4bcf7c8817a06c99ad58bb95b296'
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # In production, :host should be set to the actual host of your application.
-  config.action_mailer.default_url_options = { :host => 'www.climbon515.com' }
+  config.action_mailer.default_url_options = { :host => 'immense-cliffs-8367.heroku.com' }
   
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
