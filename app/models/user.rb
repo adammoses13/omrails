@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
   has_many :routes, :dependent => :destroy
   has_many :to_dos, :dependent => :destroy
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
 def image_remote_url=(url_value)
     self.image = URI.parse(url_value) unless url_value.blank?
